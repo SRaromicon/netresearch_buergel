@@ -1,0 +1,13 @@
+app/design/frontend/base/default/template/scoring/onepage.phtml app/design/frontend/base/default/template/scoring/onepage.phtml
+app/design/frontend/base/default/layout/scoring.xml app/design/frontend/base/default/layout/scoring.xml
+app/design/adminhtml/default/default/template/scoring/* app/design/adminhtml/default/default/template
+app/etc/modules/Netresearch_Scoring.xml app/etc/modules/Netresearch_Scoring.xml
+app/etc/modules/Netresearch_Buergel.xml app/etc/modules/Netresearch_Buergel.xml
+app/code/community/Netresearch/Scoring/* app/code/community/Netresearch/Scoring
+app/code/community/Netresearch/Buergel/* app/code/community/Netresearch/Buergel
+app/locale/de_DE/Netresearch_Scoring.csv app/locale/de_DE/Netresearch_Scoring.csv
+app/locale/de_DE/Netresearch_Buergel.csv app/locale/de_DE/Netresearch_Buergel.csv
+app/locale/en_US/Netresearch_Buergel.csv app/locale/en_US/Netresearch_Buergel.csv
+doc/Netresearch_Buergel/ChangeLog.pdf doc/Netresearch_Buergel/ChangeLog.pdf
+doc/Netresearch_Buergel/Endkundendoku.pdf doc/Netresearch_Buergel/Endkundendoku.pdf
+skin/frontend/base/default/js/scoring.js skin/frontend/base/default/js/scoring.js
