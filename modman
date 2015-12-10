@@ -8,6 +8,4 @@ app/code/community/Netresearch/Buergel/* app/code/community/Netresearch/Buergel
 app/locale/de_DE/Netresearch_Scoring.csv app/locale/de_DE/Netresearch_Scoring.csv
 app/locale/de_DE/Netresearch_Buergel.csv app/locale/de_DE/Netresearch_Buergel.csv
 app/locale/en_US/Netresearch_Buergel.csv app/locale/en_US/Netresearch_Buergel.csv
-doc/Netresearch_Buergel/ChangeLog.pdf doc/Netresearch_Buergel/ChangeLog.pdf
-doc/Netresearch_Buergel/Endkundendoku.pdf doc/Netresearch_Buergel/Endkundendoku.pdf
 skin/frontend/base/default/js/scoring.js skin/frontend/base/default/js/scoring.js
