@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+ * @category   Scoring
+ * @package    Netresearch_Scoring
+ * @author     Thomas Kappel <thomas.kappel@netresearch.de>
+ * @copyright  Copyright (c) 2011 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+-->
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name="checkout.onepage">
+            <action method="setTemplate"><template>scoring/onepage.phtml</template></action>
+        </reference>
+    </checkout_onepage_index>
+</layout>

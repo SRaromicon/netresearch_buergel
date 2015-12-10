@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+ * @category   Scoring
+ * @package    Netresearch_Scoring
+ * @author     Thomas Kappel <thomas.kappel@netresearch.de>
+ * @copyright  Copyright (c) 2011 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+-->
+<config>
+    <modules>
+        <Netresearch_Scoring>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Checkout />
+            </depends>
+        </Netresearch_Scoring>
+    </modules>
+</config>

@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<!--
+ * @category   Scoring
+ * @package    Netresearch_Scoring
+ * @author     Thomas Kappel <thomas.kappel@netresearch.de>
+ * @copyright  Copyright (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+-->
+
+<config>
+   <sections>
+        <scoring translate="label comment" module="scoring">
+            <label>Scoring</label>
+            <tab>customer</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <solvency translate="label">
+                    <label>Solvency Validation</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <validation_active translate="label">
+                            <label>Solvency validation active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </validation_active>
+                        <total_min translate="label">
+                            <label>Minimum total amount to check solvency</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </total_min>
+                        <address_type translate="label">
+                            <label>Use Address to check worthiness</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>scoring/system_config_source_address_type</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address_type>
+                        <skip_methods translate="label">
+                            <label>Skip solvency validation for selected payment methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_payment_allmethods</source_model>
+                            <backend_model>scoring/system_config_backend_solvency_skipMethods</backend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </skip_methods>
+                    </fields>
+                </solvency>
+                <!--
+                <address translate="label">
+                    <label>Address validation</label>
+                    <sort_order>110</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <validation_active translate="label">
+                            <label>Address validation active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </validation_active>
+                        <address_type translate="label">
+                            <label>Use Address to check worthiness</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>scoring/system_config_source_address_type</source_model>
+                            <sort_order>10</sort_order>
+                            <depends>
+                                <validation_active>1</validation_active>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address_type>
+                        <defaultvalue>
+                            <label>Default validation result</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>If validation should be successful if service is unavailable or erroneous.</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <depends>
+                                <validation_active>1</validation_active>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </defaultvalue>
+                    </fields>
+                </address>
+                -->
+                <errormessages translate="label">
+                    <label>Error messages</label>
+                    <sort_order>120</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <!--
+                        <address translate="label">
+                            <label>Erroneous address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address>
+                        -->
+                        <solvency translate="label">
+                            <label>Low solvency</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </solvency>
+                    </fields>
+                </errormessages>
+                <re-request>
+                    <label>Response Validity</label>
+                    <sort_order>130</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <max_number_of_checkouts translate="label">
+                            <label>Maximum number of checkouts without re-request</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </max_number_of_checkouts>
+                        <log_vadility_lifetime translate="label">
+                            <label>Response validity timeout (seconds)</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </log_vadility_lifetime>
+                    </fields>
+                </re-request>
+                <!--
+                <mail translate="label comment">
+                    <label>Mail Alert</label>
+                    <sort_order>130</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <mail_active translate="label comment">
+                            <label>error mails active</label>
+                            <comment>Send Mails to you if service fails due to interface errors.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mail_active>
+                        <sender_name translate="label">
+                            <label>sender's name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender_name>
+                        <sender_mail_address translate="label">
+                            <label>sender's mail address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender_mail_address>
+                        <receiver_name translate="label">
+                            <label>receiver's name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </receiver_name>
+                        <receiver_mail_address translate="label">
+                            <label>receiver's mail address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </receiver_mail_address>
+                        <mail_template translate="label">
+                            <label>mail template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mail_template>
+                    </fields>
+                </mail>
+                 -->
+                <solvency-groups translate="label comment">
+                    <label>Solvency Groups</label>
+                    <sort_order>140</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <default-group translate="label comment">
+                            <label>Default Group</label>
+                            <comment>Will be used, if no other group matches or service is not available. You must save your group before you are able to set it as default.</comment>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <frontend_type>select</frontend_type>
+                            <source_model>scoring/system_config_source_solvency_group</source_model>
+                        </default-group>
+                        <solvency-groups translate="label">
+                            <label>Solvency Groups</label>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>scoring/adminhtml_solvencygroups</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized</backend_model>
+                        </solvency-groups>
+                    </fields>
+                </solvency-groups>
+            </groups>
+        </scoring>
+    </sections>
+</config>

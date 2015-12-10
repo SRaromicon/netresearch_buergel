@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+ * @category   Scoring
+ * @package    Netresearch_Scoring
+ * @author     Stephan Hoyer <stephan.hoyer@netresearch.de>
+ * @author     Thomas Birke <thomas.birke@netresearch.de>
+ * @copyright  Copyright (c) 2010 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+-->
+<config>
+   <sections>
+        <scoring translate="label" module="scoring">
+            <label>Bürgel</label>
+            <tab>customer</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <buergel translate="label">
+                    <label>Bürgel account data</label>
+                    <sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <test_mode translate="label">
+                            <label>Test mode</label>
+                            <frontend_type>select</frontend_type>
+                            <comment></comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_mode>
+                        <user_id translate="label">
+                            <label>User id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </user_id>
+                        <password translate="label">
+                            <label>Password</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+                        <customer_id translate="label">
+                            <label>Customer id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_id>
+                        <services translate="label">
+                            <label>Services</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>buergel/system_source_service</source_model>
+							<backend_model>buergel/system_config_service</backend_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </services>
+                        <terms-addition>
+                            <label>Terms Addition</label>
+                            <frontend_type>note</frontend_type>
+                            <frontend_model>buergel/system_config_disabledArea</frontend_model>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Please add this informed assent to your terms and conditions.]]></comment>
+                        </terms-addition>
+                    </fields>
+                </buergel>
+            </groups>
+        </scoring>
+    </sections>
+</config>

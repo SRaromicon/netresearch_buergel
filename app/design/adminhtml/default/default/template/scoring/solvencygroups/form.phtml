@@ -1,0 +1,51 @@
+<li style="border-bottom: 1px solid #D6D6D6; padding-bottom:10px; margin-bottom:10px;">
+    <h3 id="headline-[<?php echo $this->getId() ?>]">
+        <?php if($this->getId() == 0): ?>
+            <?php echo $this->__('New Group')?>
+        <?php elseif ($this->getName()): ?>
+            <?php echo strip_tags($this->getName()) ?>
+        <?php  else: ?>  
+            <?php echo $this->__('Group '). $this->getId() ?>
+        <?php endif; ?>
+        
+    </h3>
+    <span class="solvencygroup_counter" style="display:none"><?php echo $this->getId() ?></span>
+    <label>
+        <?php  echo $this->__('Name') ?>
+    </label>
+    <input name="<?php echo $this->getElementName()?>[<?php echo $this->getId() ?>][name]" class="input-text" value="<?php echo $this->getName()?>" onkeyup="updateHeadline(this)" id="input-name-[<?php echo $this->getId()?>]" /><br /> 
+    <p class="note">
+        <span>
+            <?php echo $this->__('Name will never show up in frontend so it will never be visible to the customer and is only for internal purposes. After changing the name solvency will be re-requested for all customers being in this group.') ?>
+        </span>
+    </p>
+    <label>
+        <?php echo $this->__('Apply from Score');?>
+    </label>
+    <br />
+    <div class ="field-row">
+    <input name="<?php echo $this->getElementName()?>[<?php echo $this->getId() ?>][score]" class="validate-digits-range digits-range-10-60 input-text" value="<?php echo $this->getScore()?>"/><br /> 
+    </div>
+    <p class="note">
+    <span>
+        <?php echo $this->__('All customers with score equal or higher than this score will be assigned to this group if there is no other group with higher matching score. Score has to be between 10 (1.0) and 60 (6.0).') ?>
+    </span>
+    </p>    
+    <label>
+        <?php echo $this->__('Payment Methods') ?>
+    </label>
+    <br />
+    <select class="select multiselect payment_methods" multiple="multiple" size="10" name="<?php echo $this->getElementName()?>[<?php echo $this->getId() ?>][methods][]">
+        <option value=""><?php echo $this->__('-- none --') ?></option>
+        <?php foreach ($this->getAllMethods() as $method): ?>
+            <option value="<?php echo $method['value'] ?>" <?php 
+                echo is_array($this->getMethods()) && in_array($method['value'], $this->getMethods()) 
+                    ? 'selected="selected"' 
+                    : ''
+            ?>>
+                <?php echo $method['label']?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <?php echo $this->getRemoveRowButtonHtml() ?>
+</li>

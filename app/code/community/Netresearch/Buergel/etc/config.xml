@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+ * @category   Bürgel
+ * @package    Netresearch_Bürgel
+ * @author     Thomas Kappel <thomas.kappel@netresearch.de>
+ * @copyright  Copyright (c) 2011 Netresearch GmbH & Co.KG <http://www.netresearch.de/>
+-->
+
+<config>
+    <modules>
+        <Netresearch_Buergel>
+            <version>13.11.06</version>
+        </Netresearch_Buergel>
+    </modules>
+    <global>
+        <helpers>
+            <buergel>
+                <class>Netresearch_Buergel_Helper</class>
+            </buergel>
+        </helpers>
+        <models>
+            <buergel>
+                <class>Netresearch_Buergel_Model</class>
+            </buergel>
+            <scoring>
+                <rewrite>
+                    <service>Netresearch_Buergel_Model_Service</service>
+                    <config>Netresearch_Buergel_Model_Config</config>
+                    <validation_solvency_response>Netresearch_Buergel_Model_Validation_Solvency_Response</validation_solvency_response>
+                </rewrite>
+            </scoring>
+        </models>
+        <blocks>
+            <buergel>
+                <class>Netresearch_Buergel_Block</class>
+            </buergel>
+        </blocks>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Netresearch_Buergel>
+                    <files>
+                        <default>Netresearch_Buergel.csv</default>
+                    </files>
+                </Netresearch_Buergel>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <scoring>
+            <buergel>
+                <timeout>10</timeout>
+                <test_url>https://www.buergel-online.de/rcstest/xml.jsp</test_url>
+                <live_url>https://www.buergel-online.de/rcs/xml.jsp</live_url>
+                <is_test_mode>1</is_test_mode>
+                <services>0040</services>
+                <product_nr_concheck>40</product_nr_concheck>
+                <product_nr_riskcheck>0077</product_nr_riskcheck>
+                <terms-addition><![CDATA[Zum Zwecke der Kreditprüfung wird uns die Bürgel Wirtschaftsinformationen GmbH & Co. KG, Postfach 500 166, 22701 Hamburg, die in ihrer Datenbank zu Ihrer Person gespeicherten Adress- und Bonitätsdaten einschließlich solcher, die auf Basis mathematisch-statistischer Verfahren ermittelt wurden, zur Verfügung stellen, sofern wir unser berechtigtes Interesse glaubhaft dargelegt haben.
+
+Zum Zwecke der Entscheidung über die Begründung, Durchführung oder Beendigung des Vertragsverhältnisses erheben oder verwenden wir Wahrscheinlichkeitswerte, in deren Berechnung unter anderem Anschriftendaten einfließen.]]></terms-addition>
+            </buergel>
+        </scoring>
+    </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Netresearch_Buergel />
+            </modules>
+        </suite>
+    </phpunit>
+</config>
