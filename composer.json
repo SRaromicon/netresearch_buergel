@@ -1,0 +1,11 @@
+{
+    "name": "kirchbergerknorr/netresearch_buergel",
+    "description": "netresearch_buergel",
+    "type": "magento-module",
+    "authors": [
+        {
+            "name": "Leo Friedrichs",
+            "email": "lf@kirchbergerknorr.de"
+        }
+    ]
+}
