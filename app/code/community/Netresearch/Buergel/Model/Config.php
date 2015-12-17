@@ -113,12 +113,12 @@ class Netresearch_Buergel_Model_Config extends Netresearch_Scoring_Model_Config
      */
     public function getSegmentVersion()
     {
-        $version = '0204';
+        $version = '0304';
         if (Netresearch_Buergel_Model_System_Source_Service::RISKCHECK_STANDARD == $this->getProductNr()) {
-            $version = '0203';
+            $version = '0303';
         }
         if (Netresearch_Buergel_Model_System_Source_Service::CONCHECK_BASIC == $this->getProductNr()) {
-            $version = '0203';
+            $version = '0303';
         }
         return $version;
     }
@@ -182,6 +182,7 @@ class Netresearch_Buergel_Model_Config extends Netresearch_Scoring_Model_Config
     {
         return (
             Netresearch_Buergel_Model_System_Source_Service::CONCHECK == $this->getProductNr()
+			|| Netresearch_Buergel_Model_System_Source_Service::CONCHECK_PLUS == $this->getProductNr()
             || Netresearch_Buergel_Model_System_Source_Service::CONCHECK_BASIC == $this->getProductNr())
             ;
     }
@@ -203,6 +204,7 @@ class Netresearch_Buergel_Model_Config extends Netresearch_Scoring_Model_Config
         return in_array($services,
                 array(
                     Netresearch_Buergel_Model_System_Source_Service::CONCHECK,
+					Netresearch_Buergel_Model_System_Source_Service::CONCHECK_PLUS,
                     Netresearch_Buergel_Model_System_Source_Service::CONCHECK_BASIC
                     )
             );

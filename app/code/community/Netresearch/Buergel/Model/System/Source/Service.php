@@ -2,6 +2,7 @@
 class Netresearch_Buergel_Model_System_Source_Service
 {
     const CONCHECK                = '0040';
+	const CONCHECK_PLUS           = '0043';
     const CONCHECK_BASIC = '0042';
     const RISKCHECK_STANDARD      = '0075';
     const RISKCHECK_ADVANCED      = '0046';
@@ -17,6 +18,10 @@ class Netresearch_Buergel_Model_System_Source_Service
             array(
                 'value' => self::CONCHECK,
                 'label' => 'ConCheck',
+            ),
+            array(
+                'value' => self::CONCHECK_PLUS,
+                'label' => 'ConCheck plus',
             ),
             array(
                 'value' => self::RISKCHECK_STANDARD,
