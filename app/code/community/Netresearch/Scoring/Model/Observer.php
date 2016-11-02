@@ -41,32 +41,47 @@ class Netresearch_Scoring_Model_Observer
      */
     public function checkCustomerData($event)
     {
-        if ($this->getConfig()->isSolvencyValidationActive()
-            && $this->getConfig()->isSolvencyValidationRequiredForQuote($event->getQuote())
-        ) {
-            /* validate solvency */
-            $solvencyGroup = $this->getService()->getSolvencyGroup($event->getQuote());
-            $this->getSession()->setSolvencyGroup($solvencyGroup);
-            if (false == is_null($solvencyGroup)
-                && false == $solvencyGroup->allowsOrder($event->getQuote())
+        try{
+            if ($this->getConfig()->isSolvencyValidationActive()
+                && $this->getConfig()->isSolvencyValidationRequiredForQuote($event->getQuote())
             ) {
-                throw new Netresearch_Scoring_Model_Validation_Solvency_Exception(
-                    $this->getConfig()->getSolvencyValidationFailedMessage()
-                );
+                /* validate solvency */
+                $solvencyGroup = $this->getService()->getSolvencyGroup($event->getQuote());
+                $this->getSession()->setSolvencyGroup($solvencyGroup);
+                if (false == is_null($solvencyGroup)
+                    && false == $solvencyGroup->allowsOrder($event->getQuote())
+                ) {
+                    throw new Netresearch_Scoring_Model_Validation_Solvency_Exception(
+                        $this->getConfig()->getSolvencyValidationFailedMessage()
+                    );
+                }
             }
-        }
-        
-        
-        if ($this->getConfig()->isAddressValidationActive()) {
-            /* validate address */
-            $addressValidation = $this->getService()->validateAddress($event->getQuote());
-            if (false == is_null($addressValidation)
-                && $addressValidation->isFailed()
-            ) {
-                throw new Netresearch_Scoring_Model_Validation_Address_Exception(
-                    $addressValidation->getMessage()
-                );
+
+
+            if ($this->getConfig()->isAddressValidationActive()) {
+                /* validate address */
+                $addressValidation = $this->getService()->validateAddress($event->getQuote());
+                if (false == is_null($addressValidation)
+                    && $addressValidation->isFailed()
+                ) {
+                    throw new Netresearch_Scoring_Model_Validation_Address_Exception(
+                        $addressValidation->getMessage()
+                    );
+                }
             }
+        } catch (Netresearch_Scoring_Model_Validation_Address_Exception $e ) {
+            $result = array(
+                'error_messages' => $e->getMessage()
+            );
+            Mage::dispatchEvent('netresearch_scoring_address_validation_failed', array('quote' => $this->getOnepage()->getQuote()));
+            $result = array_merge($result, Mage::getModel('scoring/session')->getAddressValidationResultArray());
+            throw new Mage_Payment_Model_Info_Exception(($result['error_messages']));
+        } catch (Netresearch_Scoring_Model_Validation_Solvency_Exception $e ) {
+            $result = array(
+                'error_messages' => $e->getMessage()
+            );
+            Mage::dispatchEvent('netresearch_scoring_solvency_validation_failed', array('quote' => $this->getOnepage()->getQuote()));
+            throw new Mage_Payment_Model_Info_Exception($result['error_messages']);
         }
     }
     
@@ -159,5 +174,13 @@ class Netresearch_Scoring_Model_Observer
         ) {
             $this->getSession()->unsetAll();
         }
+    }
+
+    /**
+     * @return Mage_Checkout_Model_Type_Onepage
+     */
+    public function getOnepage()
+    {
+        return Mage::getSingleton('checkout/type_onepage');
     }
 }

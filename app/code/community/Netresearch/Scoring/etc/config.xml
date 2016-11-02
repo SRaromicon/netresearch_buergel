@@ -102,7 +102,7 @@
             </updates>
         </layout>
         <events>
-            <netresearch_scoring_checkout_type_onepage_save_order_before>
+            <checkout_type_onepage_save_order>
                 <observers>
                     <scoring_check_customer_data>
                         <type>singleton</type>
@@ -110,7 +110,7 @@
                         <method>checkCustomerData</method>
                     </scoring_check_customer_data>
                 </observers>
-            </netresearch_scoring_checkout_type_onepage_save_order_before>
+            </checkout_type_onepage_save_order>
             <customer_logout>
                 <observers>
                     <unsetAll>
@@ -136,15 +136,6 @@
                 </observers>
 			</controller_action_postdispatch_checkout_onepage_saveShipping>
         </events>
-        <routers>
-            <checkout>
-                <args>
-                    <modules>
-                        <Netresearch_Scoring_Checkout before="Mage_Checkout">Netresearch_Scoring_Checkout</Netresearch_Scoring_Checkout>
-                    </modules>
-                </args>
-            </checkout>
-        </routers>
     </frontend>
     <default>
         <scoring>
