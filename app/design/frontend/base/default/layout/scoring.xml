@@ -7,8 +7,8 @@
 -->
 <layout version="0.1.0">
     <checkout_onepage_index>
-        <reference name="checkout.onepage">
-            <action method="setTemplate"><template>scoring/onepage.phtml</template></action>
+        <reference name="content">
+            <block type="core/template" name="scoring.js.block" template="scoring/onepage.phtml" />
         </reference>
     </checkout_onepage_index>
 </layout>
