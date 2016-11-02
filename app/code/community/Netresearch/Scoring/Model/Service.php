@@ -41,6 +41,7 @@ class Netresearch_Scoring_Model_Service extends Mage_Core_Model_Abstract
      */
     public function __construct($config=null, $session=null, $helper=null, $logCollection=null)
     {
+        parent::__construct();
         $this->config = $config;
         $this->session = $session;
         $this->logCollection = $logCollection;
