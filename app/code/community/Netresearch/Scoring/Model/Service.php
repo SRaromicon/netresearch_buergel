@@ -35,7 +35,7 @@ class Netresearch_Scoring_Model_Service extends Mage_Core_Model_Abstract
      * @param Netresearch_Scoring_Model_Config                $config        Config
      * @param Netresearch_Scoring_Model_Session               $session       Session
      * @param Netresearch_Scoring_Helper_Data                 $helper        Helper
-     * @param Netresearch_Scoring_Model_Mysql4_Log_Collection $logCollection Log collection
+     * @param Netresearch_Scoring_Model_Resource_Log_Collection $logCollection Log collection
      * 
      * @return Netresearch_Scoring_Model_Service
      */

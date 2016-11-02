@@ -31,16 +31,16 @@
         <models>
             <scoring>
                 <class>Netresearch_Scoring_Model</class>
-                <resourceModel>scoring_mysql4</resourceModel>
+                <resourceModel>scoring_resource</resourceModel>
             </scoring>
-            <scoring_mysql4>
-                <class>Netresearch_Scoring_Model_Mysql4</class>
+            <scoring_resource>
+                <class>Netresearch_Scoring_Model_Resource</class>
                 <entities>
                     <log>
                         <table>scoring_log</table>
                     </log>
                 </entities>
-            </scoring_mysql4>
+            </scoring_resource>
         </models>
         <resources>
             <scoring_setup>

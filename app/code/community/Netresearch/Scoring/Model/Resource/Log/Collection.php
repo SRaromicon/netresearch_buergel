@@ -28,7 +28,7 @@
  * @author     Netresearch <info@netresearch.de>
  */
 
-class Netresearch_Scoring_Model_Mysql4_Log_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
+class Netresearch_Scoring_Model_Resource_Log_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract 
 {
     public function _construct()
     {
